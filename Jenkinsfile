@@ -1,6 +1,10 @@
 pipeline {
     agent any;
 
+    tools {
+        nodejs 'NodeJS18'
+    }
+
     environment {
         DOCKERHUB_USERNAME  = "kundgar19"
         BACKEND_IMAGE       = "mern-backend"
