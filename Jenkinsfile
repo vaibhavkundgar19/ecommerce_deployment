@@ -2,7 +2,7 @@ pipeline {
     agent any;
 
     environment {
-        DOCKERHUB_USERNAME  = "biswajit7815"
+        DOCKERHUB_USERNAME  = "kundgar19"
         BACKEND_IMAGE       = "mern-backend"
         FRONTEND_IMAGE      = "mern-frontend"
         IMAGE_TAG           = "${BUILD_NUMBER}"
@@ -10,7 +10,7 @@ pipeline {
         BACKEND_CONTAINER   = 'mern-backend'
         FRONTEND_CONTAINER  = 'mern-frontend'
         BACKEND_PORT        = '8000'
-        EC2_PUBLIC_IP       = "13.126.203.252"
+        EC2_PUBLIC_IP       = "35.172.240.76"
     }
 
     stages {
