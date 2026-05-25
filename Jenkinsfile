@@ -285,10 +285,44 @@ pipeline {
 
         success {
             echo "Build #${BUILD_NUMBER} deployed successfully - http://${EC2_PUBLIC_IP}"
+
+            mail(
+                to: 'vaibhavkundgar181@gmail.com',
+                subject: "Build #${BUILD_NUMBER}-SUCESS",
+                body:"""
+                    Build suucessfully deploy hogaya
+
+                    Project:${JOB_NAME}
+                    Build:#${BUILD_NUMBER}
+                    Status:SUCCESS
+                    APP URL: http://${EC2_PUBLIC_IP}
+                    Build URL: ${BUILD_URL}
+
+                    -Jenkins
+
+                """
+            )
         }
 
         failure {
             echo "Build #${BUILD_NUMBER} failed - ${BUILD_URL}console"
+
+            mail(
+                to: 'vaibhavkundgar181@gmail.com',
+                subject: "Build #${BUILD_NUMBER}-FAILURE",
+                body:"""
+                    Build fail hogaya
+
+                    Project:${JOB_NAME}
+                    Build:#${BUILD_NUMBER}
+                    Status:FAILURE
+                    Logs URL: ${BUILD_URL}console
+                    Logs dekho upar vale link par
+
+                    -Jenkins
+                    
+                """
+            )
         }
 
         cleanup {
